@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BCA Alumni Connect | National College</title>
+<meta name="description" content="Official Alumni Networking Platform — Department of BCA, National College" />
+
+<!-- Google Font: Poppins -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============ SITE HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-top">
+    <!-- Logo circle — replace the inner content with your actual logo image -->
+    <div class="header-logo-circle" aria-label="College logo">
+      <span class="logo-placeholder-text">LOGO</span>
+    </div>
+
+    <div class="header-text">
+      <p class="college-name">NATIONAL COLLEGE</p>
+      <p class="college-tagline">Autonomous | Affiliated to Bharathidasan University | NAAC Accredited</p>
+      <p class="dept-name">Department of BCA</p>
+      <h1 class="portal-name">Alumni Connect</h1>
+    </div>
+  </div>
+
+
+</header>
+
+<main>
+  <!-- ============ HOME / HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero-network" id="heroNetwork" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <span class="eyebrow">Connecting every batch, every journey</span>
+      <h2 class="hero-title">Where BCA graduates <span class="highlight">stay in touch</span> and open doors for each other</h2>
+      <p class="hero-subtitle">Search the alumni directory by name, skill, company or role — and connect directly with seniors who've walked the path before you.</p>
+
+      <form class="search-bar" id="searchForm" role="search">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+          <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search by name, skill, company or position…" autocomplete="off" />
+        <button type="submit" class="search-btn">Search</button>
+      </form>
+
+      <div class="hero-stats" id="heroStats"><!-- populated by JS --></div>
+    </div>
+  </section>
+
+  <!-- ============ NEWS TICKER ============ -->
+  <section class="news-banner" aria-label="Department news">
+    <span class="news-tag">Dept. News</span>
+    <div class="news-track-wrap">
+      <ul class="news-track" id="newsTrack"><!-- populated by JS --></ul>
+    </div>
+  </section>
+
+  <!-- ============ CAREER TIP OF THE DAY ============ -->
+  <section class="tip-section">
+    <div class="tip-card" id="tipCard">
+      <div class="tip-icon">💡</div>
+      <div class="tip-body">
+        <p class="tip-label">Career Tip</p>
+        <p class="tip-text" id="tipText">Loading today's tip…</p>
+      </div>
+      <button class="tip-refresh" id="tipRefresh" title="Get another tip" aria-label="Get another tip">⟳</button>
+    </div>
+  </section>
+
+  <!-- ============ ALUMNI DIRECTORY ============ -->
+  <section class="alumni-section" id="alumni">
+    <div class="section-heading">
+      <h2>Alumni Directory</h2>
+      <p>Filter by career path or search above to find the right person to connect with.</p>
+    </div>
+
+    <!-- Animated filter chips (populated dynamically from data) -->
+    <div class="chip-row" id="chipRow"><!-- populated by JS --></div>
+
+    <p class="result-count" id="resultCount"></p>
+
+    <div class="alumni-grid" id="alumniGrid"><!-- alumni cards injected by JS --></div>
+
+    <p class="empty-state" id="emptyState" hidden>No alumni match your search. Try a different name, skill or company.</p>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about-section" id="about">
+    <div class="about-grid">
+      <div class="about-copy">
+        <span class="eyebrow">About the platform</span>
+        <h2>Built by the department, for the department</h2>
+        <p>BCA Alumni Connect is the official networking bridge between current BCA students and graduates of National College. It exists to make one thing easy: reaching out to someone who has already been where you're standing now.</p>
+        <p>Every profile is maintained by the Department of BCA. Students can look up alumni by the skills they need guidance on, the companies they're aiming for, or simply say hello.</p>
+        <div class="about-points">
+          <div class="about-point">
+            <span class="point-num">01</span>
+            <p>Verified alumni profiles maintained by the department</p>
+          </div>
+          <div class="about-point">
+            <span class="point-num">02</span>
+            <p>Direct WhatsApp connect — no waiting on email replies</p>
+          </div>
+          <div class="about-point">
+            <span class="point-num">03</span>
+            <p>Searchable by skill and career path, not just name</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual" aria-hidden="true">
+        <div class="orbit-ring ring-1"></div>
+        <div class="orbit-ring ring-2"></div>
+        <div class="orbit-core">BCA</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact-section" id="contact">
+    <div class="section-heading light">
+      <h2>Reach the Department</h2>
+      <p>For alumni registration, corrections to your profile, or general queries.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <span class="contact-icon">📍</span>
+        <h3>Address</h3>
+        <p>Department of BCA, National College,<br/>Main Campus Road, Tamil Nadu, India</p>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">✉️</span>
+        <h3>Email</h3>
+        <p>bca.department@nationalcollege.edu.in</p>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">💬</span>
+        <h3>WhatsApp Desk</h3>
+        <p>+91 86088 65811<br/>For alumni connection requests</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <p>&copy; <span id="currentYear"></span> Department of BCA, National College — BCA Alumni Connect.</p>
+</footer>
+
+<!-- ============ PROFILE MODAL ============ -->
+<div class="modal-overlay" id="profileModalOverlay">
+  <div class="modal profile-modal" role="dialog" aria-modal="true" aria-labelledby="profileModalName">
+    <button class="modal-close" id="profileModalClose" aria-label="Close profile">&times;</button>
+    <div class="profile-modal-header">
+      <img src="" alt="" id="profileModalPhoto" class="profile-modal-photo" />
+      <div>
+        <h3 id="profileModalName"></h3>
+        <p id="profileModalRole" class="profile-modal-role"></p>
+      </div>
+    </div>
+    <div class="profile-modal-body">
+      <div class="profile-fact"><span>Batch</span><strong id="profileModalBatch"></strong></div>
+      <div class="profile-fact"><span>Company</span><strong id="profileModalCompany"></strong></div>
+      <div class="profile-fact"><span>Position</span><strong id="profileModalPosition"></strong></div>
+      <div class="profile-fact"><span>Experience</span><strong id="profileModalExperience"></strong></div>
+      <div class="profile-skills">
+        <span>Skills</span>
+        <div class="profile-skill-tags" id="profileModalSkills"></div>
+      </div>
+      <div class="profile-bio">
+        <span>About</span>
+        <p id="profileModalBio"></p>
+      </div>
+    </div>
+    <button class="btn btn-primary profile-modal-connect" id="profileModalConnectBtn">Connect with Me</button>
+  </div>
+</div>
+
+<!-- ============ CONNECT MODAL (FORM) ============ -->
+<div class="modal-overlay" id="connectModalOverlay">
+  <div class="modal connect-modal" role="dialog" aria-modal="true" aria-labelledby="connectModalTitle">
+    <button class="modal-close" id="connectModalClose" aria-label="Close form">&times;</button>
+    <h3 id="connectModalTitle">Connect with <span id="connectAlumniName">Alumnus</span></h3>
+    <p class="connect-modal-sub">This will open a WhatsApp message directly to the alumnus on your behalf.</p>
+
+    <form id="connectForm" class="connect-form">
+      <label for="studentName">Your Name</label>
+      <input type="text" id="studentName" name="studentName" placeholder="e.g. Priya Ramesh" required />
+
+      <label for="studentYear">Year</label>
+      <select id="studentYear" name="studentYear" required>
+        <option value="" disabled selected>Select your year</option>
+        <option value="First Year">First Year</option>
+        <option value="Second Year">Second Year</option>
+        <option value="Third Year">Third Year</option>
+        <option value="Alumnus">Alumnus</option>
+      </select>
+
+      <label for="studentEmail">Email ID</label>
+      <input type="email" id="studentEmail" name="studentEmail" placeholder="you@example.com" required />
+
+      <label for="studentReason">Reason for Connecting</label>
+      <textarea id="studentReason" name="studentReason" rows="3" placeholder="e.g. Guidance on placements at TCS" required></textarea>
+
+      <button type="submit" class="btn btn-primary connect-submit-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.06-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.28 1.18-1.77 1.24-.45.06-1.02.08-1.65-.1-.38-.11-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.98-.13-.18-1.08-1.43-1.08-2.73s.68-1.94.92-2.2c.24-.26.53-.33.7-.33h.5c.16 0 .38-.06.6.46.22.53.75 1.83.82 1.96.07.13.11.29.02.47-.09.18-.13.29-.26.44-.13.15-.27.34-.39.46-.13.13-.27.27-.11.53.16.26.7 1.15 1.5 1.86 1.03.92 1.9 1.2 2.16 1.34.26.13.41.11.56-.07.16-.18.66-.77.84-1.03.18-.26.35-.22.6-.13.24.09 1.55.73 1.82.87.26.13.44.2.5.31.07.13.07.71-.15 1.33z"/></svg>
+        Send via WhatsApp
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
