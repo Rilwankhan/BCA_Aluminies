@@ -1,0 +1,66 @@
+// firestore.rules
+// Deploy with: firebase deploy --only firestore:rules
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Helper functions ──────────────────────────────────────────────────────
+
+    // Check if the requesting user is authenticated
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Fetch the caller's Firestore user profile
+    function userProfile() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    // True if the caller has role = "admin"
+    function isAdmin() {
+      return isSignedIn() && userProfile().role == "admin";
+    }
+
+    // True if the caller is a verified alumni
+    function isVerifiedAlumni() {
+      return isSignedIn()
+        && userProfile().role == "alumni"
+        && userProfile().verified == true;
+    }
+
+    // ── posts collection ──────────────────────────────────────────────────────
+    match /posts/{postId} {
+      // Anyone (including visitors) can read posts
+      allow read: if true;
+
+      // Only verified alumni or admin can create posts
+      allow create: if isVerifiedAlumni() || isAdmin();
+
+      // Alumni can update/delete only their own posts; admin can update/delete any
+      allow update, delete: if isAdmin()
+        || (isVerifiedAlumni() && resource.data.alumniId == request.auth.uid);
+    }
+
+    // ── users collection ─────────────────────────────────────────────────────
+    match /users/{uid} {
+      // Any signed-in user can always read their own document (no role check — avoids circular dependency).
+      // Admin can read ALL user documents for the dashboard and pending approvals list.
+      allow read: if isSignedIn() && (request.auth.uid == uid || isAdmin());
+
+      // A user can create their own document on registration
+      allow create: if isSignedIn() && request.auth.uid == uid;
+
+      // A user can update only their own profile (except role/verified fields)
+      // Admin can update any user document (for approval/rejection)
+      allow update: if isAdmin()
+        || (isSignedIn()
+            && request.auth.uid == uid
+            && !("role" in request.resource.data.diff(resource.data).affectedKeys())
+            && !("verified" in request.resource.data.diff(resource.data).affectedKeys()));
+
+      // Only admin can delete user documents (reject alumni)
+      allow delete: if isAdmin();
+    }
+  }
+}
