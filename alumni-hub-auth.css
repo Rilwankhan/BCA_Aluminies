@@ -93,7 +93,8 @@
 /* Fix: CSS display:grid overrides the HTML hidden attribute — force hide explicitly */
 #loginForm[hidden],
 #registerForm[hidden],
-#forgotForm[hidden] {
+#forgotForm[hidden],
+#fabBtn[hidden] {
   display: none !important;
 }
 
