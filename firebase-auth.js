@@ -82,7 +82,9 @@ export function onAuthChange(callback) {
       callback(null, null);
       return;
     }
-    const profile = await getUserProfile(user.uid);
+    let profile = await getUserProfile(user.uid);
+    // Retry once if profile fetch returned null (transient Firestore issue)
+    if (!profile) profile = await getUserProfile(user.uid);
     console.log("[Auth] uid:", user.uid, "| profile:", profile);
     callback(user, profile);
   });
