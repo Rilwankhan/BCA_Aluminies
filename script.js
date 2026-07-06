@@ -236,7 +236,59 @@ const ALUMNI_DATA = [
     experience: "5 years",
     contactNumber: "918300266064",
     bio: "Specialized in full stack development with a focus on Angular. Can provide guidance on front-end frameworks, application architecture, and best practices in web development."
-  }
+  },
+  {
+    id: 18,
+    name: "Anirudh kumar",
+    photo: "https://ui-avatars.com/api/?name=Anirudh+Kumar&background=0C2461&color=fff&size=200&font-size=0.36&bold=true",
+    batch: "2018 - 2021",
+    company: "Innoright solution",
+    position: "Customer Success Lead",
+    careerPath: "Software Development",
+    skills: ["HTML", "css", "JavaScript", "DBMS", "Marketing & Sales", "Operation Management"],
+    experience: "2 years",
+    contactNumber: "916382779989",
+    bio: "Specialized in software development and application building. Can provide guidance on coding best practices, software design, and development methodologies."
+  },
+  {
+    id: 19,
+    name: " Deepan P",
+    photo: "https://ui-avatars.com/api/?name=Deepan+P&background=1E4FD8&color=fff&size=200&font-size=0.36&bold=true",
+    batch: "2018 - 2021",
+    company: "Conserve Solution, Trichy",
+    position: "Global Digital Branding Executive",
+    careerPath: "Data Analytics",
+    skills: ["SEO", "AEC/BIM", "Data Maraketing", "Landing Page Development", "Linkdin Marketing", "Brand Positioning", "Creative Direction"],
+    experience: "3 years",
+    contactNumber: "918610772090",
+    bio: "More that of a digital marketing professional who bridges marketing, content, branding, SEO, AI, and AEC/BIM domain expertise."
+  },
+  {
+    id: 20,
+    name: "Prabhu E",
+    photo: "https://ui-avatars.com/api/?name=Prabhu+E&background=F2B100&color=1a1a1a&size=200&font-size=0.36&bold=true",
+    batch: "2018 - 2021",
+    company: "Brila opus paint",
+    position: "PC",
+    careerPath: "Management",
+    skills: ["UI/UX"],
+    experience: "2 years",
+    contactNumber: "919500039194",
+    bio: "Specialized in full stack development with a focus on Angular. Can provide guidance on front-end frameworks, application architecture, and best practices in web development."
+  },
+  {
+    id: 21,
+    name: "Gunasekaran U",
+    photo: "https://ui-avatars.com/api/?name=Gunasekaran+U&background=0C2461&color=fff&size=200&font-size=0.36&bold=true",
+    batch: "2018 - 2021",
+    company: "Japers Engineering and Automotive Services",
+    position: "Software Developer",
+    careerPath: "Software Development",
+    skills: ["Python", "App Development"],
+    experience: "2 years",
+    contactNumber: "919677648585",
+    bio: "Specialized in software development and application building. Can provide guidance on coding best practices, software design, and development methodologies."
+  },
 ];
 
 // Rotating career tips — one is chosen at random every page load.
